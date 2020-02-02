@@ -1,7 +1,11 @@
-/* ----------------------- FONTS ----------------------- */
+/* ==============================================
+    FONTS
+============================================== */
 
 
-/* ----------------------- GENERAL ----------------------- */
+/* ==============================================
+    GENERAL
+============================================== */
 *,
 ul{
     box-sizing: border-box;
@@ -41,7 +45,11 @@ a:hover{
 
 
 
-/* ----------------------- STYLE ----------------------- */
+/* ==============================================
+    STYLE
+============================================== */
+
+/*--------- Navbar ---------*/
 .header__navbar__wrapper{
     position: relative;
 }
@@ -58,12 +66,14 @@ a:hover{
     border-bottom: 1px solid #ccc;
 }
 
+/*--------- Logo ---------*/
 .header__logo{
     color: #444;
     font-size: 25px;
     font-weight: bold;
 }
 
+/*--------- Hamburger button ---------*/
 .hamburger__btn{
     border: 2px solid #444;
     border-radius: 5px;
@@ -114,26 +124,63 @@ a:hover{
     top: calc(100% + 7px);
 }
 
+/*--------- Main menu ---------*/
 .main__menu{
-    /* display: none; */
     position: absolute;
     top: 0;
     right: 0;
     width: 100%;
-   height: 100vh;
-    background-color: #444;
+    height: 100vh;
+    /* background-color: #444; */
+    transition: 0.5s;
+    overflow: hidden;
+}
+
+.main__menu__circle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+    background-color: red;
+    height: 0;
+    width: 0;
+    border-radius: 50%;
+    transition: 0.5s ease-in;
+}
+
+.main__menu:hover .main__menu__circle{
+    width: 500%;
+    height: 500%;
 }
 
 .main__menu__list{
+    position: absolute;
     list-style: none;
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
+    top: 0;
+    left: 0;
+    transform: translateX(100%);
+}
+
+@keyframes mainMenuSlide {
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+.main__menu:hover .main__menu__list{
+    animation: mainMenuSlide 0.5s 0.5s forwards;
 }
 
 .main__menu__item{
     flex-grow: 1;
+    /* padding: 20px; */
 }
 
 
